@@ -1,0 +1,15 @@
+		            
+        <div class="row row-content" ng-controller="QuizListController">
+
+<label>Ricerca: <input ng-model="searchText"></label>
+			<div class="media-left media-middle" ng-repeat="quiz in piatti" | filter:searchText">
+
+Titolo quiz =>{{quiz.titolo}}<br />
+Argomento quiz =>{{quiz.argomento}}</br />
+  <a ui-sref="app.quiz({id: quiz.id})">
+Clicca qui per accedere al quiz</a>
+
+
+                    </div>
+                    
+</div>

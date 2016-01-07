@@ -1,0 +1,63 @@
+
+<div class="container" ng-controller="RisultatiController">
+
+
+<h2 style="text-align:center;"> Risultati quiz =>{{mydish.titolo}}</h2>
+<div class="row" ng-repeat = "domanda in mydish.domande">
+
+<div class="col col-xs-12 col-sm-4 ">
+	<h4> {{domanda.id}}=>{{domanda.titolo}}
+</h4><h3>Punteggio per questa risposta{{domanda.punteggio}}</h3>
+
+<div class="col col-xs-12 col-sm-8">
+	
+	<div class="radio" ng-repeat = "risposta in domanda.risposte">
+	  <div class="form-group" ng-if='domanda.tipologia=="radio"' >
+            <input type="radio" disabled required ng-model ="domanda.scelta"  name="{{domanda.id}}" ng-value ="{{risposta.id}}"/><p style="font-size:14px">{{risposta.risposta}}</p>
+
+</div>
+</div>
+<p ng-if='domanda.tipologia==="radio" && domanda.scelta === domanda.rispostacorretta'>Risposta esatta.
+Punteggio ottenuto {{domanda.punteggio}}/{{domanda.punteggio}}<span class="glyphicon glyphicon-ok">Ok</span></p>
+<p ng-if='domanda.tipologia==="radio" && domanda.scelta != domanda.rispostacorretta'>Risposta errata.
+Punteggio ottenuto 0/{{domanda.punteggio}}<span class="glyphicon glyphicon-ok">KO</span></p>
+
+  <div class="form-group" ng-if='domanda.tipologia=="text"' >
+ 
+<textarea required disabled ng-model = "domanda.fornita" class="form-control" name="{{domanda.id}}" id="{{domanda.id}}"  ng-value="{{domanda.fornita}}"
+ > </textarea>
+<p ng-if='domanda.tipologia==="text" && domanda.fornita === domanda.testocorr'>Risposta esatta.
+Punteggio ottenuto {{domanda.punteggio}}/{{domanda.punteggio}}<span class="glyphicon glyphicon-ok">Ok</span></p>
+<p ng-if='domanda.tipologia==="text" && domanda.fornita != domanda.testocorr'>Risposta errata.
+Punteggio ottenuto 0/{{domanda.punteggio}}<span class="glyphicon glyphicon-ok">Ko</span></p>
+
+ 
+</div>
+
+</div>
+</div>
+
+</div>
+
+<h2>Punteggio ottenuto</h2>{{totale}}/50
+<h2 ng-if="passato==1">Sei passato! Complimenti!</h2>
+<h2 ng-if="passato==0">Mi dispiace! Riprova la prossima volta</h2>
+
+
+
+    </div>
+    
+    
+    
+   
+   
+                    
+            
+
+                       
+                        
+                        
+            
+             
+      
+

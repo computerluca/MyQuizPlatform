@@ -1,0 +1,56 @@
+                   
+                   <div class="container" ng-controller="QuizController"
+                   ng-if ="mydish != undefined">
+
+                <form ng-submit="evaluateQuiz()" name = "QuizForm" novalidate>
+
+<h2 style="text-align:center;">{{mydish.titolo}}</h2>
+<div class="row" ng-repeat = "domanda in mydish.domande">
+
+<div class="col col-xs-12 col-sm-4 ">
+	<h4>{{domanda.id}}=>{{domanda.titolo}}
+</h4><h3>Punteggio per questa risposta{{domanda.punteggio}}</h3>
+<h2 ng-if="domanda.tipologia == 'text' && domanda.fornita ==undefined">Devi rispondere
+a questa domanda</h2>
+<h2 ng-if="domanda.tipologia == 'radio' && domanda.scelta ==undefined">Devi rispondere
+a questa domanda</h2>
+<div class="col col-xs-12 col-sm-8">
+	
+	  
+<div ng-repeat = "risposta in domanda.risposte" ng-if='domanda.tipologia=="radio"'  >
+	  <input type="radio" required ng-model ="domanda.scelta" ng-value ="{{risposta.id}}"/><p style="font-size:14px">{{risposta.risposta}}</p>
+</div>
+  <div class="form-group" ng-if='domanda.tipologia=="text"' >
+ 
+<textarea required ng-model = "domanda.fornita" class="form-control" name="{{domanda.id}}" id="{{domanda.id}}"  ng-value="{{domanda.fornita}}"
+ >Inserisci risposta alla domanda {{domanda.id}} </textarea>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<button class="btn btn-lg btn-primary"
+                     ng-disabled ="QuizForm.$invalid" type="button" 
+                     ui-sref="app.risultati({id: mydish.id})">
+Avvia la correzione                </button>
+</form>
+    </div>
+ <div class="container" ng-show="{{mydish === undefined}}"><h2>Il quiz non esiste o è stato cancellato</h2></div>   
+ 
+    
+    
+   
+   
+                    
+            
+
+                       
+                        
+                        
+            
+             
+      
+
