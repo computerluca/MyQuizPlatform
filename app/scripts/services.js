@@ -6,7 +6,7 @@ angular.module('confusionApp')
             var quiz = [
                 {
                           id:0,
-			titolo:"Quiz di merda",
+			titolo:"ExampleQuiz",
 			argomento:"generale",
 			hash:"b36051603aefc721a6dbdd631e1753f2",
 			sufficienza:60,
@@ -76,7 +76,7 @@ angular.module('confusionApp')
 	{
 				id:2,
 				titolo:"Quanto fa due più tre",
-				testocorr:"merda",
+				testocorr:"prova",
 				tipologia:"text",
 				punteggio:10,
 				risposte:
@@ -88,7 +88,7 @@ angular.module('confusionApp')
 				id:3,
 				titolo:"Quanto fa due più tre",
 				punteggio:10,
-				testocorr:"cazzo",
+				testocorr:"ciao",
 				tipologia:"text",
 				risposte:
 					[
